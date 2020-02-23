@@ -3,8 +3,8 @@
     {
       "source": {
         "git": {
-          "remote": "https://github.com/grafana/jsonnet-libs",
-          "subdir": "ksonnet-util"
+          "remote": "https://github.com/ksonnet/ksonnet-lib",
+          "subdir": "ksonnet.beta.4"
         }
       },
       "version": "master"
@@ -12,8 +12,8 @@
     {
       "source": {
         "git": {
-          "remote": "https://github.com/ksonnet/ksonnet-lib",
-          "subdir": "ksonnet.beta.4"
+          "remote": "https://github.com/kube-jsonnet/k",
+          "subdir": "1.14"
         }
       },
       "version": "master"

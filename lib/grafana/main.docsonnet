@@ -1,0 +1,7 @@
+local d = import "doc-util/main.libsonnet";
+
+d.new('grafana', url='github.com/jsonnet-libs/grafana')
++ d.withAPI(import './main.libsonnet')
++ d.withHelp(|||
+  The `grafana` jsonnet package is the offical way of installing Grafana to Kubernetes using [Tanka](https://tanka.dev).
+|||)

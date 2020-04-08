@@ -1,4 +1,4 @@
-local k = (import "ksonnet-util/kausal.libsonnet"),
+local k = (import 'ksonnet-util/kausal.libsonnet'),
       configMap = k.core.v1.configMap;
 
 local fieldValues(object) = function(key) object[key],
@@ -6,13 +6,13 @@ local fieldValues(object) = function(key) object[key],
 
 {
   _datasources:: {},
-  configMap: configMap.new("grafana-datasources")
-    + configMap.withData({
-        "datasources.yml": k.util.manifestYaml({
-          apiVersion: 1,
-          datasources: objToArr($._datasources)
-        })
-      }),
+  configMap: configMap.new('grafana-datasources')
+             + configMap.withData({
+               'datasources.yml': k.util.manifestYaml({
+                 apiVersion: 1,
+                 datasources: objToArr($._datasources),
+               }),
+             }),
 
-  mount(dir="/etc/grafana/datasources"):: k.util.configMapVolumeMount($.configMap, dir)
+  mount(dir='/etc/grafana/datasources'):: k.util.configMapVolumeMount($.configMap, dir),
 }

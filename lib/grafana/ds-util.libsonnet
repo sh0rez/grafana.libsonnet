@@ -1,8 +1,11 @@
+local d = (import './doc-util/main.libsonnet');
+
 {
+  '#new': d.fn('new creates a new datasource of given type and name', [d.arg('name', d.T.string), d.arg('type', d.T.string)]),
   new(name, type):: {
     name: name,
     type: type,
-    access: "proxy",
+    access: 'proxy',
     version: 1,
   },
 
@@ -23,12 +26,12 @@
 
   // prometheus datasource
   prometheus:: {
-    new(name, url):: $.new(name, "prometheus") {
+    new(name, url):: $.new(name, 'prometheus') {
       url: url,
-    } + self.withMethod("GET"),
+    } + self.withMethod('GET'),
 
     withMethod(method):: $.addJsonData({
       httpMethod: method,
-    })
+    }),
   },
 }

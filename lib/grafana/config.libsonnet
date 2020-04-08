@@ -1,4 +1,4 @@
-local k = (import "k.libsonnet"),
+local k = (import 'k.libsonnet'),
       configMap = k.core.v1.configMap;
 
 {
@@ -8,19 +8,19 @@ local k = (import "k.libsonnet"),
       http_port: 80,
     },
     users: {
-      default_theme: "light",
+      default_theme: 'light',
     },
     explore: {
       enabled: true,
-    }
-  }},
+    },
+  } },
 
   // grafana.ini
-  grafana: configMap.new("grafana-config")
-    + configMap.withData({
-        "grafana.ini": std.manifestIni($._ini)
-      }),
+  grafana: configMap.new('grafana-config')
+           + configMap.withData({
+             'grafana.ini': std.manifestIni($._ini),
+           }),
 
   // grafana plugins
-  _plugins:: []
+  _plugins:: [],
 }
